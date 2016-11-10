@@ -1,11 +1,14 @@
-import { createStore } from 'redux'
+import {createStore} from 'redux'
 import rootReducer from '../reducers'
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const devToolsExtension = window.devToolsExtension && window.devToolsExtension()
 
 export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    window.devToolsExtension ? window.devToolsExtension() : undefined
+    reduxDevTools,
+    devToolsExtension
   )
 
   if (module.hot) {
