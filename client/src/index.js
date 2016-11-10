@@ -2,8 +2,10 @@ import './index.css'
 
 import React from "react"
 import {render} from "react-dom"
+import {browserHistory, Router} from 'react-router'
 import injectTapEventPlugin from "react-tap-event-plugin"
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
+import routes from './routes'
 
 import App from './containers/App'
 import configureStore from './store/configureStore'
@@ -23,7 +25,7 @@ const store = configureStore()
 render(
   <MuiThemeProvider muiTheme={theme}>
     <Provider store={store}>
-      <App/>
+      <Router history={browserHistory} routes={routes}/>
     </Provider>
   </MuiThemeProvider>, document.getElementById("root")
 )
