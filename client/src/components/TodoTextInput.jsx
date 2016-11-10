@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import classnames from 'classnames'
 import TextField from 'material-ui/TextField'
 
@@ -14,19 +14,19 @@ class TodoTextInput extends Component {
     }
   }
 
-  handleEnter = e => {
+  handleEnter = (e) => {
     if (e.keyCode === 13) {
       const text = e.target.value.trim()
       this.props.onSave(text)
-      if (this.props.newTodo) {
-        this.setState({ text: '' })
+      if(this.props.newTodo) {
+        this.setState({text: ''})
       }
     }
   }
 
-  handleChange = e => this.setState({text: e.target.value})
+  handleChange = (e) => this.setState({text: e.target.value})
 
-  handleBlur = e => {
+  handleBlur = (e) => {
     if (!this.props.newTodo) {
       this.props.onSave(e.target.value)
     }
@@ -37,19 +37,15 @@ class TodoTextInput extends Component {
       <div>
         <TextField
           onKeyDown={this.handleEnter}
-           className={classnames({
-             edit: this.props.editing,
-             'new-todo': this.props.newTodo
-           })}
-           id='new-todo-input'
-           style={defaultStyle}
-           type="text"
-           hintText={this.props.placeholder}
-           autoFocus="true"
-           value={this.state.text}
-           onBlur={this.handleBlur}
-           onChange={this.handleChange}
-        />
+          className={classnames({edit: this.props.isEditing, 'new-todo': this.props.newTodo})}
+          id='new-todo-input'
+          style={defaultStyle}
+          type="text"
+          hintText={this.props.placeholder}
+          autoFocus="true"
+          value={this.state.text}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}/>
       </div>
     )
   }
@@ -59,6 +55,8 @@ TodoTextInput.propTypes = {
   onSave: PropTypes.func.isRequired,
   text: PropTypes.string,
   placeholder: PropTypes.string,
-  editing: PropTypes.bool,
+  isEditing: PropTypes.bool,
   newTodo: PropTypes.bool
 }
+
+export default TodoTextInput

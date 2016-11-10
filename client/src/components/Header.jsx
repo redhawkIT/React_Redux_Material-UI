@@ -18,8 +18,7 @@ const Header = ({addTodo}) => {
       <TodoTextInput
         newTodo={true}
         onSave={handleSave}
-        placeholder="What needs to be done?"
-       />
+        placeholder="What needs to be done?"/>
     </header>
   )
 }

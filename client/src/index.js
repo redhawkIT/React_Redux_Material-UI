@@ -7,16 +7,12 @@ import injectTapEventPlugin from "react-tap-event-plugin"
 import {Provider} from 'react-redux'
 import routes from './routes'
 
-import App from './containers/App'
 import configureStore from './store/configureStore'
 
 // For Customization Options, edit  or use
 // './src/material_ui_raw_theme_file.jsx' as a template.
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import theme from './material_ui_raw_theme_file'
-
-//Needed for React Developer Tools
-window.React = React
 
 //Needed for onTouchTap
 injectTapEventPlugin()
